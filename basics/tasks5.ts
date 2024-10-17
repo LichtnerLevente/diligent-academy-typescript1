@@ -1,4 +1,5 @@
 // @strict
+// You can find help here: https://www.typescriptlang.org/docs/handbook/2/objects.html
 
 // Exercise 1)
 // Optional Properties
@@ -45,19 +46,19 @@ const isProductFree = (product: Product): boolean => {
 // Exercise 2)
 // Readonly Properties, Readonly Arrays
 
-interface Cart {
+interface Cart2 {
     readonly products: Product[]
 }
 
 // TODO: Modify the Cart interface to make it possible
 // to empty the cart.
-const emptyCart = (cart: Cart) => cart.products = []
+const emptyCart = (cart: Cart2) => cart.products = []
 
 // TODO: Modify the Cart interface to disallow pushing 
 //  a new Item to the cart's products.
 // TODO: Modify the function's body below (addProductToCart), to allow
 //  add a new product, but the array, remains readonly.
-const addProductToCart = (product: Product, cart: Cart) => cart.products.push(product)
+const addProductToCart = (product: Product, cart: Cart2) => cart.products.push(product)
 
 // Exercise 3)
 // Index Signatures
@@ -97,18 +98,18 @@ const addFeatureFlag = (featureFlags: FeatureFlags, feature: string, flag: boole
 // Exercise 4)
 // Extending Interfaces
 
-interface Account {
+interface Account2 {
     id: number,
     name: string,
 }
 
-interface PathAccount {
+interface PathAccount2 {
     path: string
 }
 
 // TODO: correct the PathAccount interface, using the already
 //  existing Account's interface to make this function type error free.
-const renderPathAccount = (account: PathAccount) => {
+const renderPathAccount = (account: PathAccount2) => {
     return `<a href="${account.path}">${account.name}</a>`
 }
 
