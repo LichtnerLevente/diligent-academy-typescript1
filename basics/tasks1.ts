@@ -1,4 +1,4 @@
-// If you get stucked, here is the docs: https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+// If you need help, here is the docs: https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
 
 // Exercise 1, 
 // Create the Product interface based on the following example products.
@@ -54,7 +54,7 @@ export interface Product {
   
   
   // Exercise 2,
-  // Add type annotations to the arguements and return types 
+  // Add type annotations to the arguments and return types 
   // of these two functions. 
   
   function filterCourses(products /* add type annotation here */) /* add type annotation here */ {
@@ -88,10 +88,7 @@ export interface Product {
   
   // passing a product to the function, for tests only.
   const price = formatPrice(products[0])
-  
-  
-  
-  
+
   // Spoiler Alert!
   //
   // The exercises are over. Here are some type tests to check

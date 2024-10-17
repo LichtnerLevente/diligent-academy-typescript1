@@ -3,7 +3,7 @@
 // Exercise 1)
 // Optional Properties
 
-// TODO: Unforutnately someone extended our common
+// TODO: Unfortunately someone extended our common
 //  Product interface with isPaid property hence the
 //  the isFree has been already there. Some API endpoints
 //  return isFree, some isPaid. But this interface incorrectly
@@ -36,7 +36,7 @@ const productForCheckoutPage: Product = {
 // free status correctly.
 // What if, we do net set the function's return type
 // explicitly just let the Typescript to infer it?
-//  Typesciprt is not a "Godmode", it is still possible
+//  Typescript is not a "Godmode", it is still possible
 //  to make runtime failures. 
 const isProductFree = (product: Product): boolean => {
     return product.isFree
@@ -55,7 +55,7 @@ const emptyCart = (cart: Cart) => cart.products = []
 
 // TODO: Modify the Cart interface to disallow pushing 
 //  a new Item to the cart's products.
-// TODO: Modifty the function's body below (addProductToCart), to allow
+// TODO: Modify the function's body below (addProductToCart), to allow
 //  add a new product, but the array, remains readonly.
 const addProductToCart = (product: Product, cart: Cart) => cart.products.push(product)
 
@@ -75,7 +75,7 @@ const mapProductsToPrices = (cart: Cart) => {
     return mapped
 }
 
-// Exercies 4)
+// Exercise 4)
 // Index Signatures
 
 interface FeatureFlags {
@@ -88,14 +88,14 @@ interface FeatureFlags {
 // any kind of feature flag. What kind of trouble we got?
 // TODO: We decided to create a separate API endpoint to get the
 //  the blocked emails, in this interface we just enable the feature.
-//  Modify the FeatureFlags intrface and the function signature to
+//  Modify the FeatureFlags interface and the function signature to
 //  correct the type errors.
 const addFeatureFlag = (featureFlags: FeatureFlags, feature: string, flag: boolean | string[]) => {
     featureFlags[feature] = flag
 }
 
 // Exercise 4)
-// Extending Inerfaces
+// Extending Interfaces
 
 interface Account {
     id: number,

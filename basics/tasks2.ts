@@ -1,12 +1,12 @@
 // @strict
-// If you get stucked, here is the docs: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
+// If you need help, here is the docs: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
 
 // Exercise 1) Primitives and arrays
 
-// TODO: remove the "any" type, and add a concerete type for these basic primitives
+// TODO: remove the "any" type, and add a concrete type for these basic primitives
 // How they are working, if you remove all type definitions? How inference is working here?
 
-let price: any /* add the correcy type annotation here instead of any */
+let price: any /* add the correctly type annotation here instead of any */
 price = 100.5
 
 let title: any /* add type annotation here */
@@ -27,9 +27,9 @@ options = [true, true, false]
 // Exercise 2) Any
 
 // Here we have a product, which type is an explicit any.
-// Unforunately we have here a cat instead. It is clearly seen,
+// Unfortunately we have here a cat instead. It is clearly seen,
 // that everything is accepted, typescript basically switched off.
-// We will got a lot of runtime errors and unexpected undefineds
+// We will got a lot of runtime errors and unexpected undefined
 // here.
 
 // TODO: Create a proper type definition based on the usage of the product,
@@ -40,19 +40,19 @@ const productTitle = anyProduct.title
 const priceWithTaxes = anyProduct.price * (1.25)
 const upperCaseTitle = anyProduct.price.toUpperCase()
 
-// Exercise 3) Anonymus Functions
+// Exercise 3) Anonymous Functions
 
-// In JS we are putting anonymus functions to a lot of place, 
+// In JS we are putting anonymous functions to a lot of place, 
 //  typically in the higher order functions like map. Typescript
-//  can figure out the anonymus functions types based on the usage.
+//  can figure out the anonymous functions types based on the usage.
 
 // TODO: correct the parameter's type of createKeysFromTitles. Spot out
 //  how it is changing the map function's types. 
-const titelsToConvert = ["How to Hack NASA with HTML?", "Cat Taming Masterclass"]
+const titlesToConvert = ["How to Hack NASA with HTML?", "Cat Taming Masterclass"]
 const createKeysFromTitles = (titles /* */) => {
     return titles.map(title => title.toLowerCase().replace(" ", "_").replace("?", ""))
 }
-const keys = createKeysFromTitles(titelsToConvert)
+const keys = createKeysFromTitles(titlesToConvert)
 
 // Exercise 4) Union types
 
@@ -77,7 +77,7 @@ const shoppingCartCourse: Course = {
 }
 
 // TODO: Ooops, after the Course interface is changed,
-//  something is gone wrong here. Correct the funtion body for now
+//  something is gone wrong here. Correct the function body for now
 //  creatively, in the Narrowing chapter we will see a lot of
 //  patterns to handle these cases.
 const getTax = (course: Course) => {
@@ -91,7 +91,7 @@ const getTax = (course: Course) => {
 
 // TODO: fill the Type Alias for the account object
 //  based on the example object below. Spot out
-//  the differences betweeb the interface declarations.
+//  the differences between the interface declarations.
 //  Note type alias can be used for any type, not just
 //  objects. Check the examples in the handbook.
 type Account = {
@@ -126,10 +126,10 @@ const fetchAccount = (id: number): object => ({id: id, name: "Some Account", cur
 const currentAccount = fetchAccount(4) /* add Type Assertion here */
 const currentAccountName = currentAccount.name
 
-// Exercies 6) Literal types
+// Exercise 6) Literal types
 //
 // This is an important exercise. If a type is a
-//  concerete value like "USD" or 7, it is handled as 
+//  concrete value like "USD" or 7, it is handled as 
 //  a type "constant". We have already used it in the 
 //  first chapter in the Product.type property.
 //  Check here the variable types and the error messages.

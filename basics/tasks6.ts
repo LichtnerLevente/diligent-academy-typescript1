@@ -92,7 +92,7 @@ interface Listing {
 }
 
 const listingFixture = (overrides: /* */): Listing => ({
-    title: "Schrödringer's Cat under testing",
+    title: "Schrödinger's Cat under testing",
     price: 100.0,
     type: "Course",
     ...overrides
@@ -100,14 +100,14 @@ const listingFixture = (overrides: /* */): Listing => ({
 const freeListing = listingFixture({price: 0.0})
 
 // TODO: Define the Message Type 
-type ErrorCode = 'user_not_found' | 'invalid_account' | 'ongoing_checkout' | 'permission_denided'
+type ErrorCode = 'user_not_found' | 'invalid_account' | 'ongoing_checkout' | 'permission_denied'
 
 type Message = unknown
 const messages: Message = {
     user_not_found: 'Sry, Your user is not found.',
     invalid_account: 'Sry, your account is invalid.',
     ongoing_checkout: 'There is another checkout is ongoing. It is not allowed to start a new one.',
-    permission_denided: 'Sry, you do not have the proper rights to access this site.'
+    permission_denied: 'Sry, you do not have the proper rights to access this site.'
 }
 const getHumanReadableMessage = (code: ErrorCode) => messages[code]
 

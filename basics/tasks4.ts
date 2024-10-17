@@ -1,13 +1,13 @@
 // @strict
-// If you get stucked, here is the docs: https://www.typescriptlang.org/docs/handbook/2/functions.html
+// If you need help, here is the docs: https://www.typescriptlang.org/docs/handbook/2/functions.html
 //
-// In these exercises we are diving a little bit deeper of how Typescrip
+// In these exercises we are diving a little bit deeper of how Typescript
 // supports the typical usage of JS functions.
 
 // Exercise 1) function type expression
 
 // TODO: Remove unknown and use the proper function type expression,
-//  to fullfill the usage of the handler function. 
+//  to fulfill the usage of the handler function. 
 type ClickHandler = unknown;
 
 function onListingTileClick(handler: ClickHandler) {
@@ -15,7 +15,7 @@ function onListingTileClick(handler: ClickHandler) {
     handler(productId)
 } 
 
-// TODO: Fill the getEndpoint functions' fetcher paramter to conforms 
+// TODO: Fill the getEndpoint functions' fetcher parameter to conforms 
 //  its usage.
 interface Options {
     headers: {name: string, value: string}[],
@@ -40,13 +40,13 @@ const calculateTax = (price: number, tax: number): number => {
 const price1 = calculateTax(200, 25)
 const price2 = calculateTax(245)
 
-// TODO: an extra exercise, if you know the nullish calesing
+// TODO: an extra exercise, if you know the nullish coalescing
 //  operator. Short, readable and handy solution for handling
 //  optional arguments.
-// rewrite calulateTax function to use nullish coalesing operator (??)
+// rewrite calculateTax function to use nullish coalescing operator (??)
 const calculateTaxWithDoubleQuestionMark = () => {}
 
-// Exercise 3) void, never, unkown
+// Exercise 3) void, never, unknown
 // 
 // This exercise is a little bit of playground, freeform
 // style. It build on the "never", "void", and "unknown" types,
@@ -70,7 +70,7 @@ const generatePriceError = () =>  { throw new ValidationError('Price must be a n
 const generateObjectError = () =>  { throw new ValidationError('Product is not an object!') }    
 
 // TODO: correct the return type, it looks never, but according
-//  to the codeflow analysis it is different.
+//  to the code flow analysis it is different.
 const validateProduct = (product: any): never => {
     if (typeof product !== 'object' && product === null) {
         generateObjectError()
@@ -94,8 +94,8 @@ const getProductFromApi = (productId: number): unknown => {
     throw new Error('Network Error')
 }
 
-// TODO: What is the inferred return type of this functoin, why?
-// TODO: correct the response type with type assertion after it is vaidated
+// TODO: What is the inferred return type of this function, why?
+// TODO: correct the response type with type assertion after it is validated
 //  to confirm the onSuccess callback.
 const clickHandler = (productId: number, onError: (message: string) => void, onSuccess: (product: Product) => void) => {
     try {
@@ -103,16 +103,16 @@ const clickHandler = (productId: number, onError: (message: string) => void, onS
         validateProduct(response)
         onSuccess(response)
     } catch (error: unknown) {
-        // The errors in the catch phrase is unkown
+        // The errors in the catch phrase is unknown
         // by default if useUnknownInCatchVariables complier 
         // option is on, otherwise any, here it is explicitly
-        // set to unkown.
+        // set to unknown.
         //  
         // TODO: Correct the catch branch. You can use the
         //  narrowing patterns here too.
         // If the error is a ValidationError 
         // use its message in the callback, 
-        // otherwhise the 'Unkown Error'
+        // otherwise the 'Unknown Error'
         // string.
         onError(error.message)
     }
@@ -132,7 +132,7 @@ const taxedSingle = applyTax(...inputs)
 
 // Exercise 5), Parameter Destructuring
 
-// TODO: add an inline type annotion for the destructured object
+// TODO: add an inline type annotation for the destructured object
 type MessageType = 'success' | 'error'
 const renderMessage = ({message, messageType}) => {
     let color;

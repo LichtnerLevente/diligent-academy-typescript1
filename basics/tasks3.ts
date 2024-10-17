@@ -1,9 +1,9 @@
 // @strict
-// If you get stucked, here is the docs: https://www.typescriptlang.org/docs/handbook/2/narrowing.html
+// If you need help, here is the docs: https://www.typescriptlang.org/docs/handbook/2/narrowing.html
 //
 // Narrowing is one of the most important concept of Typescript. It helps you 
 //  to understand why sometimes get strange type errors. The key message from here
-//  is typescript extensively analyse the control flow, and in this handbook
+//  is typescript extensively analyze the control flow, and in this handbook
 //  chapter you find some patterns to help typescript with this analysis and
 //  cover all possible cases.
 //
@@ -12,7 +12,7 @@
 // how Typescript narrowing the different types. It is worth to check before and after
 // the correction.
 
-// Exercise 1) Narrowing, Thruthiness
+// Exercise 1) Narrowing, Truthiness
 
 interface Product {
     title: string,
@@ -114,11 +114,11 @@ class InvalidAccountId extends Error {
         this.id = id
     }
 };
-class AccessDenided extends Error { };
+class AccessDenied extends Error { };
 
 // TODO: Make it possible to handle different Error objects
 //  correctly hence their properties are different.
-const getErrorMessage = (error: InvalidAccountId | AccessDenided) => {
+const getErrorMessage = (error: InvalidAccountId | AccessDenied) => {
     if (/* */) {
         return `Your account ID (${error.id}) is invalid.`
     } else {
