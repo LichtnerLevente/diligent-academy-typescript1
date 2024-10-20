@@ -8,9 +8,9 @@
 
 // TODO: Remove unknown and use the proper function type expression,
 //  to fulfill the usage of the handler function. 
-type ClickHandler = unknown;
+type ClickHandler = (id: number) => void;
 
-function onListingTileClick(handler: ClickHandler) {
+function onListingTileClick(handler: ClickHandler): void {
     const productId = 5
     handler(productId)
 } 
@@ -21,7 +21,7 @@ interface Options {
     headers: {name: string, value: string}[],
     attempts: number,
 }
-function getEndpoint(url: string, fetcher: /* add an inline function type expression here */) {
+function getEndpoint(url: string, fetcher: (url: string, options: Options) => void) {
     const options: Options = {
         headers: [{name: 'contentType', value: 'application/json'}],
         attempts: 3
@@ -33,8 +33,8 @@ function getEndpoint(url: string, fetcher: /* add an inline function type expres
 
 // TODO: fix the type of the tax arg to
 //  conform the latter usage.
-const calculateTax = (price: number, tax: number): number => {
-    const appliedTax = tax === undefined ? 100 : tax
+const calculateTax = (price: number, tax?: number): number => {
+    const appliedTax = tax ?? 100;
     return price * (appliedTax/100)
 }
 const price1 = calculateTax(200, 25)
@@ -71,7 +71,7 @@ const generateObjectError = () =>  { throw new ValidationError('Product is not a
 
 // TODO: correct the return type, it looks never, but according
 //  to the code flow analysis it is different.
-const validateProduct = (product: any): never => {
+const validateProduct = (product: any): void => {
     if (typeof product !== 'object' && product === null) {
         generateObjectError()
     }
@@ -101,7 +101,7 @@ const clickHandler = (productId: number, onError: (message: string) => void, onS
     try {
         const response = getProductFromApi(productId)
         validateProduct(response)
-        onSuccess(response)
+        onSuccess(response as Product)
     } catch (error: unknown) {
         // The errors in the catch phrase is unknown
         // by default if useUnknownInCatchVariables complier 
